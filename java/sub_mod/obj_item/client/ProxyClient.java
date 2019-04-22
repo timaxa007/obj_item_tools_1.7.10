@@ -60,7 +60,7 @@ public class ProxyClient extends ProxyCommon {
 	}
 
 	public static int getRenderAll(String model) {
-		if (hash.containsKey(model)) hash.get(model);
+		if (hash.containsKey(model)) return hash.get(model);
 		int displayList = GLAllocation.generateDisplayLists(1);
 		GL11.glNewList(displayList, GL11.GL_COMPILE);
 		AdvancedModelLoader.loadModel(new ResourceLocation(ModItemObj.MODID, "obj/" + model + ".obj")).renderAll();
@@ -70,7 +70,7 @@ public class ProxyClient extends ProxyCommon {
 	}
 
 	public static int getRenderPart(String model, String partName) {
-		if (hash.containsKey(model + "_" + partName)) hash.get(model + "_" + partName);
+		if (hash.containsKey(model + "_" + partName)) return hash.get(model + "_" + partName);
 		int displayList = GLAllocation.generateDisplayLists(1);
 		GL11.glNewList(displayList, GL11.GL_COMPILE);
 		AdvancedModelLoader.loadModel(new ResourceLocation(ModItemObj.MODID, "obj/" + model + ".obj")).renderPart(partName);
